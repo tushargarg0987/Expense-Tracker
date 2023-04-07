@@ -13,12 +13,12 @@ const getData = async () => {
 
 const storeData = async (value) => {
     try {
-      const jsonValue = JSON.stringify(value)
-      await AsyncStorage.setItem('@exp-tracker', jsonValue)
+        const jsonValue = JSON.stringify(value)
+        await AsyncStorage.setItem('@exp-tracker', jsonValue)
     } catch (e) {
       // saving error
     }
-  }
+}
 
 export async function fetchExpenses() {
     const data = await getData();

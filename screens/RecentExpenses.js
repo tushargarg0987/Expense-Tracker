@@ -2,7 +2,6 @@ import { useContext,useEffect } from "react";
 import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 import { ExpensesContext } from "../store/expenses-context";
 import { getDateMinusDays } from "../util/date";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { fetchExpenses } from "../util/storage";
 
 function RecentExpenses() {
