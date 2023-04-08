@@ -29,6 +29,7 @@ export async function fetchExpenses() {
             amount: data[key].amount,
             date: new Date(data[key].date),
             description: data[key].description,
+            category: data[key].category
         }
         expenses.push(expenseObj);
     }
@@ -53,7 +54,7 @@ export async function updatedExpense(id, expense) {
             data[key].amount = expense.amount;
             data[key].date = new Date(expense.date)
             data[key].description = expense.description
-            
+            data[key].category = expense.category
         }
         
     }
