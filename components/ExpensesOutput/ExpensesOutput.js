@@ -1,9 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { GlobalStyles } from "../../constants/style";
 import ExpensesList from "./ExpensesList";
 import ExpensesSummary from "./ExpensesSummary";
+import { Ionicons } from "@expo/vector-icons";
+import IconButton from "./UI/IconButton";
 
-function ExpensesOutput({expenses,periodName,fallbackText}) {
+function ExpensesOutput({expenses,periodName,fallbackText,navigation}) {
     let content = <Text style={styles.infoText}>{fallbackText}</Text>
     
     if (expenses.length > 0) {
@@ -11,12 +13,21 @@ function ExpensesOutput({expenses,periodName,fallbackText}) {
     }
 
     return (
+        <>
         <View style={styles.container}>
             <ExpensesSummary
                 expenses = {expenses}
                 periodName={periodName} />
                 {content}
-        </View>
+            </View>
+            <TouchableOpacity style={{position: 'absolute', right: 20, bottom: 20,backgroundColor: 'orange',borderRadius: 100,justifyContent: 'center',alignItems: 'center',display: 'flex',}}>
+                <View style={{justifyContent: 'center',alignItems: 'center'}}>
+                <IconButton icon="add" size={50} color='white' round={true} onPress={() => {
+        navigation.navigate("ManageExpenses")
+      }} />
+            </View>
+            </TouchableOpacity>
+        </>
     )
 }
 
@@ -27,7 +38,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingTop: 24,
         // backgroundColor: GlobalStyles.colors.primary700,
-        backgroundColor: 'black',
+        backgroundColor: 'white',
+        // paddingBottom: 40,
         flex:1
     },
     infoText: {

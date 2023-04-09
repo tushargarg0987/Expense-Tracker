@@ -2,10 +2,10 @@ import { useContext } from "react";
 import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 import { ExpensesContext } from "../store/expenses-context";
 
-function AllExpenses() {
+function AllExpenses({navigation}) {
     const expensesCtx = useContext(ExpensesContext);
     return (
-        <ExpensesOutput periodName="Total" expenses={expensesCtx.expenses} fallbackText="No expenses recorded at all !" />
+        <ExpensesOutput navigation={navigation} periodName="Total" expenses={expensesCtx.expenses} fallbackText="No expenses recorded at all !" />
     )
 }
 

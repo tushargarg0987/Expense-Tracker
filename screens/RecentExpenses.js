@@ -4,7 +4,7 @@ import { ExpensesContext } from "../store/expenses-context";
 import { getDateMinusDays } from "../util/date";
 import { fetchExpenses } from "../util/storage";
 
-function RecentExpenses() {
+function RecentExpenses({navigation}) {
     const expensesCtx = useContext(ExpensesContext);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ function RecentExpenses() {
     })
 
     return (
-        <ExpensesOutput expenses={recentExpenses} periodName="Last 7 days" fallbackText="No expenses in last 7 days" />
+        <ExpensesOutput navigation={navigation} expenses={recentExpenses} periodName="Last 7 days" fallbackText="No expenses in last 7 days" />
     )
 }
 

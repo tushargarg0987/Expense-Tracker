@@ -29,16 +29,18 @@ const styles = StyleSheet.create({
     },
     label: {
         fontSize: 12,
-        color: GlobalStyles.colors.primary100,
+        color: 'black',
         marginBottom: 4,
         marginLeft: 4,
     },
     textInput: {
-        color: GlobalStyles.colors.primary700,
-        backgroundColor: GlobalStyles.colors.primary100,
+        color: '#3d3f45',
+        backgroundColor: 'rgba(46,103,248,0.15)',
         padding: 6,
         borderRadius: 6,
-        fontSize: 18
+        fontSize: 18,
+        borderWidth: 1,
+        borderColor: 'black'
     },
     multiLineInput: {
         minHeight: 100,

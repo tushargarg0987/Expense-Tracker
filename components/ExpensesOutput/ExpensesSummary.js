@@ -20,21 +20,21 @@ const styles = StyleSheet.create({
     container: {
         padding: 8,
         // backgroundColor: GlobalStyles.colors.primary50,
-        backgroundColor: 'rgba(66, 66, 66,0.85)',
+        backgroundColor: 'white',
         borderRadius: 6,
         flexDirection: "row",
         justifyContent: 'space-between',
         alignItems: 'center'
     },
     period: {
-        fontSize: 12,
+        fontSize: 16,
         // color: GlobalStyles.colors.primary400
-        color: 'white'
+        color: 'black'
     },
     sum: {
         fontSize: 18,
         fontWeight: 'bold',
         // color: GlobalStyles.colors.primary500
-        color: 'white'
+        color: 'black'
     }
 })

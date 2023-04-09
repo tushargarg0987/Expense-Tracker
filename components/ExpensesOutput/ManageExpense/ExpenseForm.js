@@ -98,7 +98,9 @@ function ExpenseForm({onCancel, onSubmit, isEditing,defaultValues}) {
             <View style={{ paddingVertical: 10 ,marginHorizontal: 2,marginBottom: 5}}>
                 <Text style={[{
                     fontSize: 12,
-                    color: GlobalStyles.colors.primary100,
+                    color: 
+                    '#7da0fa'
+                    ,
                     marginBottom: 4,marginLeft: 4}, !inputValue.category.isValid && { color: GlobalStyles.colors.error500 }]}
                 >Category</Text>
             <SelectList 
@@ -111,14 +113,14 @@ function ExpenseForm({onCancel, onSubmit, isEditing,defaultValues}) {
                         width: '100%',
                         marginTop: 50,
                         zIndex: 100,
-                        backgroundColor: GlobalStyles.colors.primary100
+                        backgroundColor: 'rgb(204, 217, 252)'
                     }}
                     boxStyles={[{
-                        backgroundColor: GlobalStyles.colors.primary100,
+                        backgroundColor: 'rgb(204, 217, 252)',
                     
                     }, !inputValue.category.isValid && { borderColor: 'red', backgroundColor: GlobalStyles.colors.error50 }]}
                     inputStyles={[{
-                        color: GlobalStyles.colors.primary700,
+                        color: 'black',
                         fontWeight: 'bold'
                     }, !inputValue.category.isValid && { color: GlobalStyles.colors.error500 }]}
                     defaultOption={defaultValues &&  selectedItem }
@@ -151,7 +153,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         textAlign: 'center',
         fontWeight: 'bold',
-        color: 'white',
+        color: 'black',
         marginVertical: 16
     },
     buttons: {
