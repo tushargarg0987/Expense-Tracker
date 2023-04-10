@@ -102,22 +102,6 @@ function Analysis() {
                     )
                 })}
             </View>
-            <Text>Weekly Analysis</Text>
-            <BarChart
-                // style={graphStyle}
-                data={data}
-                width={Dimensions.get('window').width - 10}
-                height={220}
-                yAxisLabel="₹"
-                chartConfig={{color: (opacity = 5) => `rgba(0, 0, 0, ${opacity})`,backgroundColor: "rgb(242, 242, 242)",backgroundGradientFrom: "rgba(242, 242, 242, 0)",
-                backgroundGradientTo: "rgba(242, 242, 242, 0)",paddingHorizontal: 10}}
-                // verticalLabelRotation={30}
-                style={{
-                    marginVertical: 8,
-                    padding: 4,
-                    backgroundColor: 'rgb(242, 242, 242)'
-                }}
-            />
         </View>
     )
 }
