@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { Text, View ,Dimensions} from "react-native";
-import { ExpensesContext } from "../store/expenses-context";
-import { PieChart,BarChart } from "react-native-chart-kit";
+import { Text, View ,Dimensions,StyleSheet} from "react-native";
+// import { ExpensesContext } from "../store/expenses-context";
+import { ExpensesContext } from "../../store/expenses-context";
+import { PieChart} from "react-native-chart-kit";
 
 const weekDays = ['Sun','Mon','Tue','Wed','Thur','Fri','Sat']
 
-function Analysis() {
+function PlottedPieChart() {
     const expensesCtx = useContext(ExpensesContext);
     let total = 0;
     // console.log(expensesCtx.expenses);
@@ -13,14 +14,16 @@ function Analysis() {
     // console.log(Object.keys(expensesCtx.expenses).length);
     const listValues = [
         {key:'1', value:'Grocery'},
-        {key:'2', value:'Food and Drinks'},
-        {key:'3', value:'Bills'},
-        {key:'4', value:'Transport'},
-        {key:'5', value:'Vehicle Maintainance'},
-        {key:'6', value:'Entertainment'},
-        {key:'7', value:'Miscellaneous'},
+        { key: '2', value: 'Food & Drinks' },
+        {key: '3',value: 'Fashion'},
+        {key: '4',value: 'Accessories'},
+        {key:'5', value:'Bills'},
+        {key:'6', value:'Transport'},
+        {key:'7', value:'Vehicle'},
+        {key:'8', value:'Entertainment'},
+        {key:'9', value:'Miscellaneous'},
     ]
-    const sliceColor = ['#F44336','#2196F3','#FFEB3B', '#4CAF50', '#FF9800', 'blue','green']
+    const sliceColor = ['#EB455F','#537FE7','#FFEB3B', '#609966', '#FFB84C', '#00235B','#9DC08B','#8F43EE','#C9EEFF']
     const arr = [];
     for (let ele in listValues) {
         let count=0;
@@ -75,7 +78,7 @@ function Analysis() {
       };
 
     return (
-        <View style={{backgroundColor: 'rgb(242, 242, 242)'}}> 
+        <View style={[{backgroundColor: 'rgb(242, 242, 242)'},styles.container]}> 
 
         <PieChart
             data={arr}
@@ -92,7 +95,7 @@ function Analysis() {
                 center={[Dimensions.get('window').width/4,0]}
             />
 
-            <View style={{paddingHorizontal: 40,backgroundColor:'rgb(242, 242, 242)'}}>
+            <View style={{paddingHorizontal: 40,backgroundColor:'rgb(242, 242, 242)',marginTop: 30}}>
                 {arr.map((component) => {
                     return (
                         <View key={component.key} style={{flexDirection: "row",marginVertical: 8}}>
@@ -106,4 +109,17 @@ function Analysis() {
     )
 }
 
-export default Analysis
+export default PlottedPieChart
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: 'center'
+    },
+    textHead: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        marginBottom: 100
+    }
+})

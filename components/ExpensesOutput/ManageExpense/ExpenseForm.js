@@ -7,12 +7,14 @@ import { GlobalStyles } from "../../../constants/style";
 
 const listValues = [
     {key:'1', value:'Grocery'},
-    {key:'2', value:'Food and Drinks'},
-    {key:'3', value:'Bills'},
-    {key:'4', value:'Transport'},
-    {key:'5', value:'Vehicle Maintainance'},
-    {key:'6', value:'Entertainment'},
-    {key:'7', value:'Miscellaneous'},
+    { key: '2', value: 'Food & Drinks' },
+    {key: '3',value: 'Fashion'},
+    {key: '4',value: 'Accessories'},
+    {key:'5', value:'Bills'},
+    {key:'6', value:'Transport'},
+    {key:'7', value:'Vehicle'},
+    {key:'8', value:'Entertainment'},
+    {key:'9', value:'Miscellaneous'},
 ]
 
 function ExpenseForm({onCancel, onSubmit, isEditing,defaultValues}) {
@@ -98,9 +100,7 @@ function ExpenseForm({onCancel, onSubmit, isEditing,defaultValues}) {
             <View style={{ paddingVertical: 10 ,marginHorizontal: 2,marginBottom: 5}}>
                 <Text style={[{
                     fontSize: 12,
-                    color: 
-                    '#7da0fa'
-                    ,
+                    color: 'black',
                     marginBottom: 4,marginLeft: 4}, !inputValue.category.isValid && { color: GlobalStyles.colors.error500 }]}
                 >Category</Text>
             <SelectList 
@@ -113,15 +113,22 @@ function ExpenseForm({onCancel, onSubmit, isEditing,defaultValues}) {
                         width: '100%',
                         marginTop: 50,
                         zIndex: 100,
-                        backgroundColor: 'rgb(204, 217, 252)'
+                        backgroundColor: '#f2f2f2'
                     }}
                     boxStyles={[{
-                        backgroundColor: 'rgb(204, 217, 252)',
+                        backgroundColor: '#f2f2f2',
+                        padding: 0
                     
                     }, !inputValue.category.isValid && { borderColor: 'red', backgroundColor: GlobalStyles.colors.error50 }]}
+                    dropdownTextStyles={{
+                        color: 'black',
+                        fontSize: 18
+                    }}
                     inputStyles={[{
                         color: 'black',
-                        fontWeight: 'bold'
+                        fontWeight: '400',
+                        fontSize: 18,
+                        margin: 0
                     }, !inputValue.category.isValid && { color: GlobalStyles.colors.error500 }]}
                     defaultOption={defaultValues &&  selectedItem }
             />

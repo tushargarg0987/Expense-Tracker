@@ -79,7 +79,7 @@ export default function App() {
       <ExpensesContextProvider>
       <NavigationContainer>
           <Drawer.Navigator screenOptions={{
-            headerStyle: { backgroundColor: '#2E67F8'},
+            headerStyle: { backgroundColor: '#5283ff'},
             headerTintColor: 'white'
           }}>
           <Drawer.Screen name="Home" component={Home} />

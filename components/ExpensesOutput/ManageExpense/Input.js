@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
         marginLeft: 4,
     },
     textInput: {
-        color: '#3d3f45',
-        backgroundColor: 'rgba(46,103,248,0.15)',
+        color: 'black',
+        backgroundColor: '#f2f2f2',
         padding: 6,
         borderRadius: 6,
         fontSize: 18,
