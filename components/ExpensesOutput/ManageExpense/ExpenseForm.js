@@ -17,7 +17,15 @@ const listValues = [
     {key:'9', value:'Miscellaneous'},
 ]
 
-function ExpenseForm({onCancel, onSubmit, isEditing,defaultValues}) {
+function ExpenseForm({ onCancel, onSubmit, isEditing, defaultValues }) {
+    var catValue;
+    if (defaultValues) { 
+        for (let ele in listValues) {
+            if (listValues[ele].key = defaultValues.category) {
+                catValue = listValues[ele].value;
+            }
+        }
+    }
     const [inputValue, setValue] = useState({
         amount: {
             value: defaultValues ? defaultValues.amount.toString() : '', isValid: true
@@ -27,7 +35,8 @@ function ExpenseForm({onCancel, onSubmit, isEditing,defaultValues}) {
             , isValid: true
         },
         description: { value: defaultValues ? defaultValues.description : '', isValid: true },
-        category: { value: defaultValues ? defaultValues.category : '', isValid: true },
+        category: { value: defaultValues ? catValue : '', isValid: true },
+        // split: { value: defaultValues.split ? defaultValues.split : 1, isValid: true}
     });
     let selectedItem = {}
     if (defaultValues) {
@@ -39,16 +48,17 @@ function ExpenseForm({onCancel, onSubmit, isEditing,defaultValues}) {
             amount: +inputValue.amount.value,
             date: new Date(inputValue.date.value),
             description: inputValue.description.value,
-            category: inputValue.category.value
+            category: inputValue.category.value,
+            // split: inputValue.split.value
         };
 
         const amountIsValid = !isNaN(expenseData.amount) && expenseData.amount > 0;
         const dateIsValid = expenseData.date.toString() !== 'Invalid Date';
         const descriptionIsValid = expenseData.description.trim().length > 0
         const categoryIsValid = expenseData.category.length > 0
+        // const splitIsValid = 
 
         if (!amountIsValid || !descriptionIsValid || !dateIsValid || !categoryIsValid) {
-            // Alert.alert('Invalid Input', 'Please check your input values');
             setValue((currInputs) => {
                 return {
                     amount: { value: currInputs.amount.value, isValid: amountIsValid },
