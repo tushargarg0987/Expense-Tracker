@@ -10,7 +10,7 @@ import { addExpenses, deletedExpense, updatedExpense } from "../util/storage";
 
 function ManageExpenses({ route, navigation }) {
     const expensesCtx = useContext(ExpensesContext)
-    const editedExpenseId = route.params.expenseId;
+    const editedExpenseId = route.params?.expenseId;
     const isEditing = !!editedExpenseId;
     
     const selectedExpense = expensesCtx.expenses.find(expense => expense.id === editedExpenseId)
