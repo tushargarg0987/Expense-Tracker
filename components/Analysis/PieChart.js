@@ -105,6 +105,9 @@ function PlottedPieChart() {
                     )
                 })}
             </View>
+            <Text>Custom Chart</Text>
+            <View style={styles.customChart}>
+            </View>
         </View>
     )
 }
@@ -121,5 +124,11 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: 'bold',
         marginBottom: 100
+    },
+    customChart: {
+        height: 200,
+        width: 200,
+        borderRadius: 100,
+        backgroundColor: 'conic-gradient(pink 0 70deg,orange 0)'
     }
 })

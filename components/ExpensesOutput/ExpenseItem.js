@@ -4,8 +4,7 @@ import { GlobalStyles } from "../../constants/style";
 import { getFormatedDate } from "../../util/date";
 
 
-
-function ExpenseItem({id,description,amount,date,category}) {
+function ExpenseItem({ id, description, amount, date, category }) {
     const navigation = useNavigation();
 
     function expensePressHandler() {
@@ -15,13 +14,13 @@ function ExpenseItem({id,description,amount,date,category}) {
     }
 
     return (
-        <Pressable onPress={expensePressHandler} style={({pressed})=>pressed && styles.pressed}>
+        <Pressable onPress={expensePressHandler} style={({ pressed }) => pressed && styles.pressed}>
             <View style={styles.expenseItem}>
                 <View>
-                    <Text style={[styles.textBase,styles.description]}>{description}</Text>
-                        <View style={{ flexDirection: 'row',justifyContent: 'space-between'}}>
+                    <Text style={[styles.textBase, styles.description]}>{description}</Text>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                         <Text style={styles.textBase}>{getFormatedDate(date)}</Text>
-                    <Text style={styles.categoryText}>{category}</Text>
+                        <Text style={styles.categoryText}>{category}</Text>
                     </View>
                 </View>
                 <View style={styles.amountContainer}>

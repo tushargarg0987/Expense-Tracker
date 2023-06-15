@@ -29,7 +29,8 @@ export async function fetchExpenses() {
             amount: data[key].amount,
             date: new Date(data[key].date),
             description: data[key].description,
-            category: data[key].category
+            category: data[key].category,
+            split : data[key].split
         }
         expenses.push(expenseObj);
     }
@@ -50,11 +51,11 @@ export async function updatedExpense(id, expense) {
     for (const key in data) {
         if (data[key].id === id) {
             
-                
             data[key].amount = expense.amount;
             data[key].date = new Date(expense.date)
             data[key].description = expense.description
             data[key].category = expense.category
+            data[key].split = expense.split
         }
         
     }
@@ -63,7 +64,6 @@ export async function updatedExpense(id, expense) {
 
 export async function deletedExpense(id) {
     const data = await getData();
-    // const newData = [...data, { ...expense, id: id }];
     const newData = data.filter((expense) => expense.id!==id)
         await storeData(newData);
     
